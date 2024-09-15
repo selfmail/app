@@ -1,55 +1,37 @@
+import Header from "@/components/header";
 import Page from "@/components/page";
-import { Text } from 'react-native';
-import { toast } from "sonner-native";
-
+import { cn } from "@/utils/cn";
+import { ScrollView, Text, View } from "react-native";
+const data = [
+  { id: 1, title: "Home" },
+  { id: 2, title: "About" },
+  { id: 3, title: "Contact" },
+  { id: 4, title: "Contact" },
+  { id: 5, title: "Contact" },
+]
 // Home page
 export default function HomeScreen() {
+  const colors = [
+    "#ed5d53",
+    "#435931",
+    "green",
+    "yellow",
+    "red",
+    "purple",
+    "pink",
+    "orange",
+  ]
   return (
-    // <ParallaxScrollView
-    //   headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-    //   headerImage={
-    //     <Image
-    //       source={require('@/assets/images/partial-react-logo.png')}
-    //       style={styles.reactLogo}
-    //     />
-    //   }>
-    //   <ThemedView style={styles.titleContainer}>
-    //     <ThemedText type="title">Welcome!</ThemedText>
-    //     <HelloWave />
-    //   </ThemedView>
-    //   <ThemedView style={styles.stepContainer}>
-    //     <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-    //     <ThemedText>
-    //       Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-    //       Press{' '}
-    //       <ThemedText type="defaultSemiBold">
-    //         {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
-    //       </ThemedText>{' '}
-    //       to open developer tools.
-    //     </ThemedText>
-    //   </ThemedView>
-    //   <ThemedView style={styles.stepContainer}>
-    //     <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-    //     <ThemedText>
-    //       Tap the Explore tab to learn more about what's included in this starter app.
-    //     </ThemedText>
-    //   </ThemedView>
-    //   <ThemedView style={styles.stepContainer}>
-    //     <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-    //     <ThemedText>
-    //       When you're ready, run{' '}
-    //       <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-    //       <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-    //       <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-    //       <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-    //     </ThemedText>
-    //   </ThemedView>
-    // </ParallaxScrollView>
-    <Page header>
-      <Text
-        className="pt-2"
-        onPress={() => toast('Hello, World!')}
-      >Show a toast</Text>
+    <Page className="flex flex-col" header>
+      <Header />
+      <ScrollView horizontal>
+        {data.map((item) => (
+          <View key={item.id} className={cn("p-3 rounded-md h-32 w-64 mx-2")} style={{ backgroundColor: colors[item.id % colors.length] }}>
+            <Text className="text-sm text-[#333333]">Categorys</Text>
+            <Text className="text-2xl font-medium m-0 p-0">{item.title}</Text>
+          </View>
+        ))}
+      </ScrollView>
     </Page>
   );
 }
