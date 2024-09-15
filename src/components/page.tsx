@@ -1,9 +1,13 @@
 // default page template
-import { type NativeMethods, SafeAreaView } from 'react-native';
-import type { Constructor } from "react-native/types/private/Utilities";
+import { cn } from "@/utils/cn";
+import { SafeAreaView, View, ViewProps } from 'react-native';
 
-const Page: React.FC<Constructor<NativeMethods> & { children: React.ReactNode }> = ({ children, ...props }) => (
-    <SafeAreaView {...props}>
+/**Basic page template to start a new page. */
+const Page: React.FC<ViewProps & { children: React.ReactNode, /* Show the account an the header */ header?: boolean }> = ({ children, header, ...props }) => (
+    <SafeAreaView {...props} className={cn("flex-1", "bg-white", "dark:bg-black", props.className)}>
+        <View>
+
+        </View>
         {children}
     </SafeAreaView>
 )
