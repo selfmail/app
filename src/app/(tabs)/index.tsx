@@ -1,5 +1,5 @@
+import Page from "@/components/page";
 import { Text } from 'react-native';
-import { SafeAreaView } from "react-native-safe-area-context";
 import { toast } from "sonner-native";
 
 // Home page
@@ -45,11 +45,11 @@ export default function HomeScreen() {
     //     </ThemedText>
     //   </ThemedView>
     // </ParallaxScrollView>
-    <SafeAreaView>
+    <Page header>
       <Text
         className="pt-2"
         onPress={() => toast('Hello, World!')}
       >Show a toast</Text>
-    </SafeAreaView>
+    </Page>
   );
 }
