@@ -1,4 +1,6 @@
 import { StyleSheet, Text } from 'react-native';
+import { SafeAreaView } from "react-native-safe-area-context";
+import { toast } from "sonner-native";
 
 
 export default function HomeScreen() {
@@ -43,9 +45,12 @@ export default function HomeScreen() {
     //     </ThemedText>
     //   </ThemedView>
     // </ParallaxScrollView>
-    <Text className="text-yellow-800 font-bold">
-      Welcome to your new app!
-    </Text>
+    <SafeAreaView>
+      <Text
+        className="pt-2"
+        onPress={() => toast('Hello, World!')}
+      >Show a toast</Text>
+    </SafeAreaView>
   );
 }
 
